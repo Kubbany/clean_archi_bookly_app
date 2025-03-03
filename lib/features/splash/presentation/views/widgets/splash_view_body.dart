@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/splash/presentation/views/widgets/animated_text.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -14,10 +15,7 @@ class SplashViewBody extends StatelessWidget {
         Image.asset(
           AppAssets.logo,
         ),
-        const Text(
-          "Read Free Books",
-          textAlign: TextAlign.center,
-        ),
+        const AnimatedText(),
       ],
     );
   }
