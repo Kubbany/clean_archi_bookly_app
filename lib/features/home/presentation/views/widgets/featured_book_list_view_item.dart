@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/assets.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedBookListViewItem extends StatelessWidget {
@@ -6,21 +7,10 @@ class FeaturedBookListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
+    return const CustomImage(
       aspectRatio: 0.65,
-      child: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(16),
-          ),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(
-              AppAssets.testImage,
-            ),
-          ),
-        ),
-      ),
+      image: AppAssets.testImage,
+      borderRadius: 16,
     );
   }
 }
