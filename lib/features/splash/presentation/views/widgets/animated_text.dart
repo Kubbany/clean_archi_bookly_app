@@ -17,6 +17,10 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
   void initState() {
     super.initState();
 
+    initSlidingAnimation();
+  }
+
+  void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(
