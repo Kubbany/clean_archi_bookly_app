@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.leading, required this.trailing});
+  const CustomAppBar({
+    super.key,
+    required this.leading,
+    required this.trailingIcon,
+    required this.trailingOnPressed,
+  });
   final Widget leading;
-  final IconButton trailing;
+  final IconData trailingIcon;
+  final VoidCallback trailingOnPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         leading,
-        trailing,
+        IconButton(
+          onPressed: trailingOnPressed,
+          icon: Icon(
+            trailingIcon,
+            size: 26,
+          ),
+        ),
       ],
     );
   }

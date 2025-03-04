@@ -15,13 +15,8 @@ class HomeViewAppBar extends StatelessWidget {
         AppAssets.logo,
         height: 22,
       ),
-      trailing: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          FontAwesomeIcons.magnifyingGlass,
-          size: 26,
-        ),
-      ),
+      trailingIcon: FontAwesomeIcons.magnifyingGlass,
+      trailingOnPressed: () {},
     );
   }
 }
