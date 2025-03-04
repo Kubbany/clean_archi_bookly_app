@@ -13,10 +13,21 @@ class HomeViewBody extends StatelessWidget {
           16,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 20,
           children: [
             HomeViewAppBar(),
             FeaturedBooksListView(),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Best Seller",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ],
         ),
       ),
