@@ -23,7 +23,6 @@ class BestSellerListViewItem extends StatelessWidget {
         ),
         Expanded(
           child: Column(
-            spacing: 5,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
@@ -36,6 +35,9 @@ class BestSellerListViewItem extends StatelessWidget {
                     fontFamily: kGtSectraFine,
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 5,
               ),
               const Text(
                 "J.K Rowling",
