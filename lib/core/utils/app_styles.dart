@@ -8,7 +8,6 @@ abstract class AppStyles {
   );
   static const styleNormal20 = TextStyle(
     fontSize: 20,
-    fontFamily: kGtSectraFine,
     fontWeight: FontWeight.normal,
   );
   static const styleThick30 = TextStyle(
