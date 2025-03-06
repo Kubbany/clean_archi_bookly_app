@@ -12,9 +12,9 @@ abstract class AppStyles {
     fontWeight: FontWeight.normal,
     color: Colors.white,
   );
-  static const styleThick30 = TextStyle(
+  static const styleSemiBold30 = TextStyle(
     fontSize: 30,
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.w600,
     fontFamily: kGtSectraFine,
     letterSpacing: 1.2,
     color: Colors.white,
