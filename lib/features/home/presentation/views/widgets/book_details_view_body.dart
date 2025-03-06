@@ -1,7 +1,7 @@
-import 'package:bookly_app/core/utils/app_styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_details_.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:bookly_app/core/widgets/custom_book_item.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/books_actions.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -16,39 +16,25 @@ class BookDetailsViewBody extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               child: Column(
-                spacing: 20,
+                spacing: 15,
                 children: <Widget>[
                   const BookDetailsAppBar(),
+                  const SizedBox(),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.47,
                     child: const CustomBookItem(),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
-                  Column(
-                    spacing: 6,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "The Jungle Book",
-                        textAlign: TextAlign.center,
-                        style: AppStyles.styleSemiBold30,
-                      ),
-                      Text(
-                        "Rudyard Kipling",
-                        style: AppStyles.styleSemiBold18.copyWith(
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.grey[600],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      const BookRating(),
-                    ],
-                  ),
+                  const BookDetails(),
+                  const SizedBox(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: BooksActions(),
+                  )
                 ],
               ),
             ),
