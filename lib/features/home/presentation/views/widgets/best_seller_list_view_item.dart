@@ -43,9 +43,11 @@ class BestSellerListViewItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Text(
+                Text(
                   "J.K Rowling",
-                  style: AppStyles.styleNormal14,
+                  style: AppStyles.styleNormal14.copyWith(
+                    color: Colors.grey[500],
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -31,5 +31,3 @@ abstract class AppStyles {
     color: Colors.white,
   );
 }
-
-//const TextStyle textStyle = TextStyle();

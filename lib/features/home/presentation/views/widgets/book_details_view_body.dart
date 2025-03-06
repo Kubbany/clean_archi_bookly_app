@@ -43,9 +43,10 @@ class BookDetailsViewBody extends StatelessWidget {
                           color: Colors.grey[600],
                         ),
                       ),
-                      const Center(
-                        child: BookRating(),
+                      const SizedBox(
+                        height: 5,
                       ),
+                      const BookRating(),
                     ],
                   ),
                 ],
