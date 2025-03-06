@@ -1,8 +1,6 @@
-import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/instance_manager.dart';
+import 'package:go_router/go_router.dart';
 
 class AnimatedText extends StatefulWidget {
   const AnimatedText({
@@ -47,17 +45,13 @@ class _AnimatedTextState extends State<AnimatedText> with SingleTickerProviderSt
     );
   }
 
-  void navigateToHome() {
-    Future.delayed(
+  void navigateToHome() async {
+    await Future.delayed(
       const Duration(seconds: 2),
-      () {
-        Get.to(
-          () => const HomeView(),
-          transition: Transition.downToUp,
-          duration: kTransitionDuration,
-        );
-      },
     );
+    if (mounted) {
+      GoRouter.of(context).go(AppRouter.kHomeView);
+    }
   }
 
   void initSlidingAnimation() {
