@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/featured_book_list_view_item.dart';
+import 'package:bookly_app/core/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
@@ -14,7 +14,7 @@ class FeaturedBooksListView extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(
           width: 20,
         ),
-        itemBuilder: (context, index) => const FeaturedBookListViewItem(),
+        itemBuilder: (context, index) => const CustomBookItem(),
       ),
     );
   }
