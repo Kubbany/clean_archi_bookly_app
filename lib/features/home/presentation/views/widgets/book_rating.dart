@@ -8,15 +8,13 @@ class BookRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 7,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         const StarredBook(),
         const Text(
           "4.8",
           style: AppStyles.styleMedium16,
-        ),
-        const SizedBox(
-          width: 5,
         ),
         Text(
           "(2455)",
@@ -40,14 +38,14 @@ class _StarredBookState extends State<StarredBook> {
   bool isStarred = false;
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
+    return InkWell(
+      onTap: () {
         isStarred = !isStarred;
         setState(
           () {},
         );
       },
-      icon: Icon(
+      child: Icon(
         FontAwesomeIcons.solidStar,
         size: 20,
         color: isStarred ? const Color(0xFFFFDD4F) : Colors.grey[800],

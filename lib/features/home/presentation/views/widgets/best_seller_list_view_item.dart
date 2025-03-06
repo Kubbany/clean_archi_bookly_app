@@ -12,7 +12,7 @@ class BestSellerListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
@@ -29,6 +29,7 @@ class BestSellerListViewItem extends StatelessWidget {
           ),
           Expanded(
             child: Column(
+              spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
@@ -41,9 +42,6 @@ class BestSellerListViewItem extends StatelessWidget {
                       fontFamily: kGtSectraFine,
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
                 ),
                 const Text(
                   "J.K Rowling",
