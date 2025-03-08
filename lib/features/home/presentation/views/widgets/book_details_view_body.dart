@@ -18,17 +18,14 @@ class BookDetailsViewBody extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               child: Column(
-                spacing: 15,
+                spacing: 30,
                 children: <Widget>[
                   const BookDetailsAppBar(),
-                  const SizedBox(),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.44,
                     child: const CustomBookItem(),
                   ),
-                  const SizedBox(),
                   const BookDetails(),
-                  const SizedBox(),
                   const Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 16,
