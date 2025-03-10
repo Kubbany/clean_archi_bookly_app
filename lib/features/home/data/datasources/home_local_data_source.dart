@@ -10,13 +10,13 @@ abstract class HomeLocalDataSource {
 class HomeLocalDataSourceImplementation extends HomeLocalDataSource {
   @override
   List<BookEntity> fetchFeaturedBooks() {
-    var box = Hive.box<BookEntity>(kFeaturedBooks);
+    Box<BookEntity> box = Hive.box<BookEntity>(kFeaturedBooks);
     return box.values.toList();
   }
 
   @override
   List<BookEntity> fetchNewestBooks() {
-    var box = Hive.box<BookEntity>(kNewestBooks);
+    Box<BookEntity> box = Hive.box<BookEntity>(kNewestBooks);
     return box.values.toList();
   }
 }

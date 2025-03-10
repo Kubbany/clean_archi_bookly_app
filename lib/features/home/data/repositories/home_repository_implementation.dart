@@ -15,7 +15,7 @@ class HomeRepositoryImplementation extends HomeRepository {
   });
   @override
   Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
-    var books = homeLocalDataSource.fetchFeaturedBooks();
+    List<BookEntity> books = homeLocalDataSource.fetchFeaturedBooks();
     if (books.isNotEmpty) {
       return right(books);
     } else {
@@ -30,7 +30,7 @@ class HomeRepositoryImplementation extends HomeRepository {
 
   @override
   Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
-    var books = homeLocalDataSource.fetchNewestBooks();
+    List<BookEntity> books = homeLocalDataSource.fetchNewestBooks();
     if (books.isNotEmpty) {
       return right(books);
     } else {
