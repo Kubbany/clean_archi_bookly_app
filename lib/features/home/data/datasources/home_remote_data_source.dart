@@ -1,4 +1,6 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
+import 'package:bookly_app/core/utils/functions/cache_data.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 
@@ -18,6 +20,8 @@ class HomeRemoteDataSourceImplementaion extends HomeRemoteDataSource {
     );
 
     List<BookEntity> books = getBooksList(data);
+
+    cacheData<BookEntity>(books, kFeaturedBooks);
     return books;
   }
 
@@ -28,6 +32,9 @@ class HomeRemoteDataSourceImplementaion extends HomeRemoteDataSource {
     );
 
     List<BookEntity> books = getBooksList(data);
+
+    cacheData<BookEntity>(books, kNewestBooks);
+
     return books;
   }
 
