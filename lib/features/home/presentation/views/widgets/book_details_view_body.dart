@@ -23,7 +23,9 @@ class BookDetailsViewBody extends StatelessWidget {
                   const BookDetailsAppBar(),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.44,
-                    child: const CustomBookItem(),
+                    child: const CustomBookItem(
+                      image: "",
+                    ),
                   ),
                   const BookDetails(),
                   const Padding(

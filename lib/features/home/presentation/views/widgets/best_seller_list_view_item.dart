@@ -1,7 +1,6 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/app_styles.dart';
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +22,7 @@ class BestSellerListViewItem extends StatelessWidget {
             height: 150,
             child: CustomImage(
               aspectRatio: 0.6,
-              image: AppAssets.testImage,
+              image: "",
               borderRadius: 8,
             ),
           ),

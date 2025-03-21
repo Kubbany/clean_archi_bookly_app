@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomImage extends StatelessWidget {
@@ -13,17 +14,16 @@ class CustomImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: aspectRatio,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(borderRadius),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(16),
+        ),
+        child: CachedNetworkImage(
+          errorWidget: (context, url, error) => Container(
+            color: Colors.grey,
           ),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage(
-              image,
-            ),
-          ),
+          imageUrl: image,
+          fit: BoxFit.fill,
         ),
       ),
     );
