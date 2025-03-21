@@ -9,10 +9,10 @@ abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchNewestBooks();
 }
 
-class HomeRemoteDataSourceImplementaion extends HomeRemoteDataSource {
+class HomeRemoteDataSourceImplementation extends HomeRemoteDataSource {
   final ApiService apiService;
 
-  HomeRemoteDataSourceImplementaion(this.apiService);
+  HomeRemoteDataSourceImplementation(this.apiService);
   @override
   Future<List<BookEntity>> fetchFeaturedBooks() async {
     Map<String, dynamic> data = await apiService.get(

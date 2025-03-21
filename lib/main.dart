@@ -5,11 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 
+import 'core/utils/service_locator.dart';
+
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter<BookEntity>(BookEntityAdapter());
   await Hive.openBox<BookEntity>(kFeaturedBooks);
   await Hive.openBox<BookEntity>(kNewestBooks);
+  setupServiceLocator();
   runApp(const BooklyApp());
 }
 
