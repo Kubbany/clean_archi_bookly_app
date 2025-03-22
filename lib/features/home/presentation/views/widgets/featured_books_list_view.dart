@@ -10,7 +10,7 @@ class FeaturedBooksListView extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.25,
       child: ListView.separated(
-        itemCount: 10,
+        itemCount: books.length,
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => const SizedBox(
           width: 20,
