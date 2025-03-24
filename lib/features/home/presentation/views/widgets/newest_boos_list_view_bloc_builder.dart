@@ -2,6 +2,7 @@ import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit
 import 'package:bookly_app/features/home/presentation/views/widgets/newest_books_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class NewestBooksListViewBlocBuilder extends StatelessWidget {
   const NewestBooksListViewBlocBuilder({
@@ -23,12 +24,8 @@ class NewestBooksListViewBlocBuilder extends StatelessWidget {
             ),
           );
         } else {
-          return const SliverToBoxAdapter(
-            child: Center(
-              child: CircularProgressIndicator(
-                color: Colors.blue,
-              ),
-            ),
+          return const Skeletonizer.sliver(
+            child: DummyNewestBooksListView(),
           );
         }
       },

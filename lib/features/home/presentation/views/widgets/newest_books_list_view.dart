@@ -11,7 +11,22 @@ class NewestBooksListView extends StatelessWidget {
       itemCount: books.length,
       itemBuilder: (context, index) => NewestListViewItem(
         bookItem: books[index],
+        isDummy: false,
       ),
+      separatorBuilder: (context, index) => const SizedBox(
+        height: 20,
+      ),
+    );
+  }
+}
+
+class DummyNewestBooksListView extends StatelessWidget {
+  const DummyNewestBooksListView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return SliverList.separated(
+      itemCount: 15,
+      itemBuilder: (context, index) => const NewestListViewItem(),
       separatorBuilder: (context, index) => const SizedBox(
         height: 20,
       ),
