@@ -50,4 +50,18 @@ class HomeRepositoryImplementation extends HomeRepository {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks({required String category}) async {
+    List<BookEntity> books;
+    try {
+      books = await homeRemoteDataSource.fetchSimilarBooks(category: category);
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
 }

@@ -1,14 +1,15 @@
 import 'package:bookly_app/core/utils/app_styles.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:bookly_app/core/widgets/custom_book_item.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_actions.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/similar_books_list_view.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/similar_books_list_view_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.book});
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,11 +24,14 @@ class BookDetailsViewBody extends StatelessWidget {
                   const BookDetailsAppBar(),
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.44,
-                    child: const CustomBookItem(
-                      image: "",
+                    child: CustomBookItem(
+                      image: book.image ?? "",
                     ),
                   ),
-                  const BookDetails(),
+                  BookDetails(
+                    title: book.title,
+                    author: book.authorName ?? "Unkown Author",
+                  ),
                   const Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 16,
@@ -54,7 +58,7 @@ class BookDetailsViewBody extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SimilarBooksListView(),
+                  const SimilarBooksListViewBlocBuilder(),
                   const SizedBox(
                     height: 5,
                   ),

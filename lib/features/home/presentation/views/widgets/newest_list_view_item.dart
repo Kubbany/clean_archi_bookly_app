@@ -14,7 +14,10 @@ class NewestListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(
+          AppRouter.kBookDetailsView,
+          extra: bookItem,
+        );
       },
       child: Row(
         spacing: 30,
