@@ -1,7 +1,9 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/widgets/custom_book_item.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SimilarBooksListView extends StatelessWidget {
   const SimilarBooksListView({super.key, required this.books});
@@ -16,9 +18,17 @@ class SimilarBooksListView extends StatelessWidget {
         separatorBuilder: (context, index) => const SizedBox(
           width: 10,
         ),
-        itemBuilder: (context, index) => CustomBookItem(
-          isDummy: false,
-          image: books[index].image ?? "",
+        itemBuilder: (context, index) => InkWell(
+          onTap: () {
+            GoRouter.of(context).push(
+              AppRouter.kBookDetailsView,
+              extra: books[index],
+            );
+          },
+          child: CustomBookItem(
+            isDummy: false,
+            image: books[index].image ?? "",
+          ),
         ),
       ),
     );
