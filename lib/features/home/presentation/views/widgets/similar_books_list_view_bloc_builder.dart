@@ -2,6 +2,7 @@ import 'package:bookly_app/features/home/presentation/manager/similar_books_cubi
 import 'package:bookly_app/features/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class SimilarBooksListViewBlocBuilder extends StatelessWidget {
   const SimilarBooksListViewBlocBuilder({
@@ -21,10 +22,8 @@ class SimilarBooksListViewBlocBuilder extends StatelessWidget {
             child: Text(state.errorMessage),
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: Colors.blue,
-            ),
+          return const Skeletonizer(
+            child: DummySimilarBooksListView(),
           );
         }
       },
