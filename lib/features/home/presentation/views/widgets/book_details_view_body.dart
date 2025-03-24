@@ -25,6 +25,7 @@ class BookDetailsViewBody extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.44,
                     child: CustomBookItem(
+                      isDummy: false,
                       image: book.image ?? "",
                     ),
                   ),
