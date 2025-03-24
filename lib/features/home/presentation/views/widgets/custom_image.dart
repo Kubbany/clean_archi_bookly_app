@@ -9,9 +9,11 @@ class CustomImage extends StatelessWidget {
     required this.aspectRatio,
     required this.image,
     required this.borderRadius,
+    this.isDummy = true,
   });
   final double aspectRatio, borderRadius;
   final String image;
+  final bool isDummy;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -20,17 +22,28 @@ class CustomImage extends StatelessWidget {
         borderRadius: const BorderRadius.all(
           Radius.circular(16),
         ),
-        child: CachedNetworkImage(
-          placeholder: (context, url) => Skeletonizer(
-            child: Image.asset(AppAssets.testImage),
-          ),
-          errorWidget: (context, url, error) => Container(
-            color: Colors.grey,
-            child: const Icon(Icons.error_outline),
-          ),
-          imageUrl: image,
-          fit: BoxFit.fill,
-        ),
+        child: !isDummy
+            ? CachedNetworkImage(
+                placeholder: (context, url) => Skeletonizer(
+                  child: Image.asset(AppAssets.testImage),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  color: Colors.grey,
+                  child: const Icon(Icons.error_outline),
+                ),
+                imageUrl: image,
+                fit: BoxFit.fill,
+              )
+            : Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(16),
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage(AppAssets.testImage),
+                  ),
+                ),
+              ),
       ),
     );
   }
