@@ -33,11 +33,14 @@ class BookDetailsViewBody extends StatelessWidget {
                     title: book.title,
                     author: book.authorName ?? "Unkown Author",
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                     ),
-                    child: BooksActions(),
+                    child: BooksActions(
+                      url: book.url,
+                      pdf: book.pdf,
+                    ),
                   )
                 ],
               ),
