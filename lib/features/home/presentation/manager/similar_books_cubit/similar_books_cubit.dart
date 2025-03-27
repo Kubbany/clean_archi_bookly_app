@@ -12,9 +12,13 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
   SimilarBooksCubit(this.similarBooksUseCase) : super(SimilarBooksInitial());
   final FetchSimilarBooksUseCase similarBooksUseCase;
 
-  Future<void> fetchSimilarBooks({required String cateogry}) async {
-    emit(SimilarBooksLoading());
-    Either<Failure, List<BookEntity>> result = await similarBooksUseCase.execute(cateogry);
+  Future<void> fetchSimilarBooks({required String cateogry, int pageNumber = 0}) async {
+    if (pageNumber == 0) {
+      emit(SimilarBooksLoading());
+    } else {
+      emit(SimilarBooksPaginationLoading());
+    }
+    Either<Failure, List<BookEntity>> result = await similarBooksUseCase.execute(cateogry, pageNumber);
 
     result.fold(
       (failure) {

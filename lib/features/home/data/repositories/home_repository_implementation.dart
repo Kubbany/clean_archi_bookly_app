@@ -16,13 +16,13 @@ class HomeRepositoryImplementation extends HomeRepository {
     required this.homeLocalDataSource,
   });
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks() async {
-    List<BookEntity> books = homeLocalDataSource.fetchFeaturedBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks({int pageNumber = 0}) async {
+    List<BookEntity> books = homeLocalDataSource.fetchFeaturedBooks(pageNumber: pageNumber);
     if (books.isNotEmpty) {
       return right(books);
     } else {
       try {
-        books = await homeRemoteDataSource.fetchFeaturedBooks();
+        books = await homeRemoteDataSource.fetchFeaturedBooks(pageNumber: pageNumber);
         return right(books);
       } catch (e) {
         if (e is DioException) {
@@ -34,13 +34,13 @@ class HomeRepositoryImplementation extends HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
-    List<BookEntity> books = homeLocalDataSource.fetchNewestBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks({int pageNumber = 0}) async {
+    List<BookEntity> books = homeLocalDataSource.fetchNewestBooks(pageNumber: pageNumber);
     if (books.isNotEmpty) {
       return right(books);
     } else {
       try {
-        books = await homeRemoteDataSource.fetchNewestBooks();
+        books = await homeRemoteDataSource.fetchNewestBooks(pageNumber: pageNumber);
         return right(books);
       } catch (e) {
         if (e is DioException) {
@@ -52,7 +52,7 @@ class HomeRepositoryImplementation extends HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks({required String category}) async {
+  Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks({required String category, int pageNumber = 0}) async {
     List<BookEntity> books;
     try {
       books = await homeRemoteDataSource.fetchSimilarBooks(category: category);

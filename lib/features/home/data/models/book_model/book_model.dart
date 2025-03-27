@@ -26,13 +26,13 @@ class BookModel extends BookEntity {
     this.searchInfo,
   }) : super(
           bookId: id!,
-          title: volumeInfo.title!,
+          title: volumeInfo.title ?? "Unknown Book",
           image: volumeInfo.imageLinks?.thumbnail ?? '',
           authorName: volumeInfo.authors?.first ?? 'Unknown Author',
           price: 0.0,
           rating: 0.0,
-          category: volumeInfo.categories![0],
-          url: volumeInfo.previewLink!,
+          category: volumeInfo.categories?[0] ?? "",
+          url: volumeInfo.previewLink ?? "",
           pdf: accessInfo?.pdf?.acsTokenLink ?? "",
         );
 

@@ -31,7 +31,7 @@ class BookDetailsViewBody extends StatelessWidget {
                   ),
                   BookDetails(
                     title: book.title,
-                    author: book.authorName ?? "Unkown Author",
+                    author: book.authorName ?? "Unknown Author",
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
@@ -62,7 +62,7 @@ class BookDetailsViewBody extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  const SimilarBooksListViewBlocBuilder(),
+                  SimilarBooksListViewBlocBuilder(category: book.category),
                   const SizedBox(
                     height: 5,
                   ),

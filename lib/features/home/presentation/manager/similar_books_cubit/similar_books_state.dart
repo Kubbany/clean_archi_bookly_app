@@ -18,3 +18,5 @@ final class SimilarBooksSuccess extends SimilarBooksState {
 }
 
 final class SimilarBooksLoading extends SimilarBooksState {}
+
+final class SimilarBooksPaginationLoading extends SimilarBooksState {}
