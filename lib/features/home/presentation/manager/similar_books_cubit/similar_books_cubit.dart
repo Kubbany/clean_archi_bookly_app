@@ -22,7 +22,11 @@ class SimilarBooksCubit extends Cubit<SimilarBooksState> {
 
     result.fold(
       (failure) {
-        emit(SimilarBooksFailure(errorMessage: failure.errorMessage));
+        if (pageNumber == 0) {
+          emit(SimilarBooksFailure(errorMessage: failure.errorMessage));
+        } else {
+          emit(SimilarBooksPaginationFailure(errorMessage: failure.errorMessage));
+        }
       },
       (books) {
         emit(SimilarBooksSuccess(books: books));

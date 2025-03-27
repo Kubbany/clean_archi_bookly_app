@@ -18,11 +18,16 @@ class NewestBooksCubit extends Cubit<NewestBooksState> {
     } else {
       emit(NewestBooksPaginationLoading());
     }
+
     Either<Failure, List<BookEntity>> result = await newestBooksUseCase.execute(pageNumber);
 
     result.fold(
       (failure) {
-        emit(NewestBooksFailure(errorMessage: failure.errorMessage));
+        if (pageNumber == 0) {
+          emit(NewestBooksFailure(errorMessage: failure.errorMessage));
+        } else {
+          emit(NewestBooksPaginationFailure(errorMessage: failure.errorMessage));
+        }
       },
       (books) {
         emit(NewestBooksSuccess(books: books));

@@ -16,11 +16,15 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
     } else {
       emit(FeaturedBooksPaginationLoading());
     }
-    Either<Failure, List<BookEntity>> result = await featuredBooksUseCase.execute(pageNumber);
 
+    Either<Failure, List<BookEntity>> result = await featuredBooksUseCase.execute(pageNumber);
     result.fold(
       (failure) {
-        emit(FeaturedBooksFailure(errorMessage: failure.errorMessage));
+        if (pageNumber == 0) {
+          emit(FeaturedBooksFailure(errorMessage: failure.errorMessage));
+        } else {
+          emit(FeaturedBooksPaginationFailure(errorMessage: failure.errorMessage));
+        }
       },
       (books) {
         emit(FeaturedBooksSuccess(books: books));

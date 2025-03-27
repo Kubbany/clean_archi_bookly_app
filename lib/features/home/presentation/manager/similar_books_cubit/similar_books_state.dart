@@ -20,3 +20,9 @@ final class SimilarBooksSuccess extends SimilarBooksState {
 final class SimilarBooksLoading extends SimilarBooksState {}
 
 final class SimilarBooksPaginationLoading extends SimilarBooksState {}
+
+final class SimilarBooksPaginationFailure extends SimilarBooksState {
+  final String errorMessage;
+
+  SimilarBooksPaginationFailure({required this.errorMessage});
+}
